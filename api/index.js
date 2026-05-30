@@ -10,16 +10,13 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Mock Admin Credentials & Session Token
 const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = 'goldstarrestaurant';
 const ADMIN_TOKEN = 'token-letoiledoree-2026-secure';
 
-// Admin Token Middleware
 function authenticateAdmin(req, res, next) {
   const authHeader = req.headers.authorization;
   if (authHeader && authHeader === `Bearer ${ADMIN_TOKEN}`) {
@@ -29,9 +26,6 @@ function authenticateAdmin(req, res, next) {
   }
 }
 
-// PUBLIC ROUTES
-
-// 1. Submit reservation
 app.post('/api/reservations', async (req, res) => {
   const { name, email, phone, date, time, guests, zone, occasion, notes } = req.body;
   
@@ -59,14 +53,12 @@ app.post('/api/reservations', async (req, res) => {
   }
 });
 
-// 2. Fetch approved reviews
 app.get('/api/reviews', async (req, res) => {
   const reviews = await db.getReviews();
   const approvedReviews = reviews.filter(r => r.status === 'Approved');
   res.json(approvedReviews);
 });
 
-// 3. Submit a review
 app.post('/api/reviews', async (req, res) => {
   const { name, rating, comment } = req.body;
 
@@ -88,7 +80,6 @@ app.post('/api/reviews', async (req, res) => {
   }
 });
 
-// 4. Admin Login
 app.post('/api/admin/login', (req, res) => {
   const { username, password } = req.body;
   if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
@@ -99,18 +90,14 @@ app.post('/api/admin/login', (req, res) => {
 });
 
 
-// ADMIN PROTECTED ROUTES (Require Authorization Header)
-
-// 1. Fetch all reservations
 app.get('/api/admin/reservations', authenticateAdmin, async (req, res) => {
   const reservations = await db.getReservations();
   res.json(reservations);
 });
 
-// 2. Update reservation status (Confirm/Cancel)
 app.put('/api/admin/reservations/:id/status', authenticateAdmin, async (req, res) => {
   const { id } = req.params;
-  const { status } = req.body; // 'Confirmed' or 'Cancelled'
+  const { status } = req.body;
 
   if (!['Confirmed', 'Cancelled', 'Pending'].includes(status)) {
     return res.status(400).json({ error: 'Invalid status' });
@@ -124,7 +111,6 @@ app.put('/api/admin/reservations/:id/status', authenticateAdmin, async (req, res
   }
 });
 
-// 3. Delete reservation
 app.delete('/api/admin/reservations/:id', authenticateAdmin, async (req, res) => {
   const { id } = req.params;
   const deleted = await db.deleteReservation(id);
@@ -135,16 +121,14 @@ app.delete('/api/admin/reservations/:id', authenticateAdmin, async (req, res) =>
   }
 });
 
-// 4. Fetch all reviews (including pending/rejected) for moderation
 app.get('/api/admin/reviews', authenticateAdmin, async (req, res) => {
   const reviews = await db.getReviews();
   res.json(reviews);
 });
 
-// 5. Update review status (Approve/Reject)
 app.put('/api/admin/reviews/:id/status', authenticateAdmin, async (req, res) => {
   const { id } = req.params;
-  const { status } = req.body; // 'Approved' or 'Rejected'
+  const { status } = req.body;
 
   if (!['Approved', 'Rejected', 'Pending'].includes(status)) {
     return res.status(400).json({ error: 'Invalid status' });
@@ -158,7 +142,6 @@ app.put('/api/admin/reviews/:id/status', authenticateAdmin, async (req, res) => 
   }
 });
 
-// 6. Delete review
 app.delete('/api/admin/reviews/:id', authenticateAdmin, async (req, res) => {
   const { id } = req.params;
   const deleted = await db.deleteReview(id);
@@ -169,7 +152,6 @@ app.delete('/api/admin/reviews/:id', authenticateAdmin, async (req, res) => {
   }
 });
 
-// 7. Get backend analytics stats for the dashboard
 app.get('/api/admin/stats', authenticateAdmin, async (req, res) => {
   const reservations = await db.getReservations();
   const reviews = await db.getReviews();
@@ -199,11 +181,9 @@ app.get('/api/admin/stats', authenticateAdmin, async (req, res) => {
 });
 
 
-// Serve static frontend files locally in production mode
 const distPath = path.join(__dirname, '../dist');
 app.use(express.static(distPath));
 
-// For local direct testing, serve client index.html for unknown routes
 if (!process.env.VERCEL) {
   app.use((req, res, next) => {
     if (req.method === 'GET' && req.accepts('html')) {
@@ -214,7 +194,6 @@ if (!process.env.VERCEL) {
   });
 }
 
-// Start server locally if not running on Vercel serverless platform
 if (!process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`L'Étoile Dorée backend running locally on port ${PORT}`);
