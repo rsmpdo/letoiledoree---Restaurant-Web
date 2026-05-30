@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const MENU_ITEMS = [
-  // Starters
   {
     id: 'm1',
     category: 'starters',
@@ -20,7 +19,6 @@ const MENU_ITEMS = [
     dietary: ['Gluten-Free'],
     image: '/assets/starter_scallops.svg'
   },
-  // Mains
   {
     id: 'm3',
     category: 'mains',
@@ -48,7 +46,6 @@ const MENU_ITEMS = [
     dietary: ['Vegetarian', 'Gluten-Free'],
     image: '/assets/main_risotto.svg'
   },
-  // Desserts
   {
     id: 'm6',
     category: 'desserts',
@@ -67,7 +64,6 @@ const MENU_ITEMS = [
     dietary: ['Vegetarian'],
     image: '/assets/dessert_lemon.svg'
   },
-  // Cocktails & Wines
   {
     id: 'm8',
     category: 'drinks',
