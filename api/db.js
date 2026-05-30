@@ -5,25 +5,21 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Detect if running on Vercel environment
 const isVercel = !!process.env.VERCEL;
 const DATA_DIR = isVercel ? '/tmp' : path.join(__dirname, 'data');
 const RESERVATIONS_FILE = path.join(DATA_DIR, 'reservations.json');
 const REVIEWS_FILE = path.join(DATA_DIR, 'reviews.json');
 
-// Helper to ensure data directory and files exist
 async function initDB() {
   try {
     await fs.mkdir(DATA_DIR, { recursive: true });
     
-    // Initialize reservations file if not exists
     try {
       await fs.access(RESERVATIONS_FILE);
     } catch {
       await fs.writeFile(RESERVATIONS_FILE, JSON.stringify([], null, 2));
     }
 
-    // Initialize reviews file with seed data if not exists
     try {
       await fs.access(REVIEWS_FILE);
     } catch {
@@ -63,7 +59,6 @@ async function initDB() {
   }
 }
 
-// Read utility
 async function readData(filePath) {
   try {
     const data = await fs.readFile(filePath, 'utf-8');
@@ -74,7 +69,6 @@ async function readData(filePath) {
   }
 }
 
-// Write utility (with atomic safety)
 async function writeData(filePath, data) {
   const tempPath = `${filePath}.tmp`;
   try {
@@ -83,7 +77,7 @@ async function writeData(filePath, data) {
     return true;
   } catch (error) {
     console.error(`Error writing database file at ${filePath}:`, error);
-    // Cleanup temp file if exists
+    
     try {
       await fs.unlink(tempPath);
     } catch {}
@@ -91,7 +85,7 @@ async function writeData(filePath, data) {
   }
 }
 
-// API functions
+
 export const db = {
   async getReservations() {
     await initDB();
