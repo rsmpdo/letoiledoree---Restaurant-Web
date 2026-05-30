@@ -26,7 +26,7 @@ If you are developing a production application, we recommend using TypeScript wi
 - Fast development server and build optimization via Vite
 - Responsive design with dark‑mode support
 - Easy deployment to Vercel (continuous integration)
-- Ready for extension: add a backend API, authentication, or a CMS
+- Ready for extension: add a backend API, authentication or a CMS
 
 ## Getting Started
 1. **Clone the repository** (already done) or ensure you have the project folder.
