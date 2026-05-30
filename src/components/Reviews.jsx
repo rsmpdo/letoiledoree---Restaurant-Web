@@ -9,7 +9,6 @@ export default function Reviews() {
   const [submitError, setSubmitError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  // Fetch reviews on mount
   useEffect(() => {
     fetchReviews();
   }, []);
@@ -60,7 +59,6 @@ export default function Reviews() {
       if (res.ok) {
         setSubmitSuccess(true);
         setFormData({ name: '', rating: 5, comment: '' });
-        // Refresh reviews after brief period or keep it static to demonstrate moderation
       } else {
         setSubmitError(data.error || 'Failed to submit review.');
       }
