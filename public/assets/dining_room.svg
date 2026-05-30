@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+      <defs>
+        <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+          <stop offset="0%" stop-color="#1c1c1a"/>
+          <stop offset="100%" stop-color="#070707"/>
+        </radialGradient>
+        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#d4af37"/>
+          <stop offset="50%" stop-color="#f5d77f"/>
+          <stop offset="100%" stop-color="#aa7c11"/>
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bg)"/>
+      <circle cx="600" cy="400" r="300" fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="600" cy="400" r="200" fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.2"/>
+      
+      <!-- Vault Arches -->
+      <path d="M 300,800 A 300,300 0 0,1 900,800" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.4"/>
+      <path d="M 400,800 A 200,200 0 0,1 800,800" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.3"/>
+      <path d="M 200,800 A 400,400 0 0,1 1000,800" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.2"/>
+      
+      <!-- Chandelier Stars -->
+      <g transform="translate(600, 250)">
+        <line x1="0" y1="-150" x2="0" y2="0" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="0" cy="0" r="8" fill="url(#gold)"/>
+        <path d="M-40,0 L40,0 M0,-40 L0,40 M-25,-25 L25,25 M-25,25 L25,-25" stroke="url(#gold)" stroke-width="1" opacity="0.6"/>
+      </g>
+      
+      <g transform="translate(450, 300)">
+        <line x1="0" y1="-200" x2="0" y2="0" stroke="url(#gold)" stroke-width="1" opacity="0.3"/>
+        <path d="M-20,0 L20,0 M0,-20 L0,20" stroke="url(#gold)" stroke-width="0.8" opacity="0.5"/>
+      </g>
+      
+      <g transform="translate(750, 300)">
+        <line x1="0" y1="-200" x2="0" y2="0" stroke="url(#gold)" stroke-width="1" opacity="0.3"/>
+        <path d="M-20,0 L20,0 M0,-20 L0,20" stroke="url(#gold)" stroke-width="0.8" opacity="0.5"/>
+      </g>
+
+      <!-- Text -->
+      <text x="600" y="550" fill="url(#gold)" font-family="'Cormorant Garamond', serif" font-size="36" letter-spacing="8" text-anchor="middle" font-weight="300">L'ÉTOILE DORÉE</text>
+      <text x="600" y="590" fill="#a8a8a2" font-family="'Inter', sans-serif" font-size="14" letter-spacing="4" text-anchor="middle" opacity="0.8">THE GRAND GLASSHOUSE &amp; VAULT</text>
+    </svg>

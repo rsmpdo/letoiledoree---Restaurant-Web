@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+      <defs>
+        <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+          <stop offset="0%" stop-color="#151515"/>
+          <stop offset="100%" stop-color="#0a0a0a"/>
+        </radialGradient>
+        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c5a880"/>
+          <stop offset="100%" stop-color="#9a7215"/>
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bg)"/>
+      
+      <!-- Visual elements -->
+      <g transform="translate(300, 170)">
+        <circle cx="0" cy="0" r="90" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.2"/>
+       <circle cx="0" cy="0" r="70" fill="none" stroke="url(#gold)" stroke-width="1.5" stroke-dasharray="4,6" opacity="0.4"/>
+       <!-- Abstract gourmet food shape -->
+       <path d="M-30,-20 Q0,-50 30,-20 Q50,20 0,40 Q-50,20 -30,-20 Z" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.6"/>
+       <path d="M-10,-10 Q10,-30 20,-5 Q10,15 -10,-5" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.5"/>
+       <line x1="40" y1="40" x2="60" y2="60" stroke="url(#gold)" stroke-width="1" opacity="0.4"/>
+       <circle cx="65" cy="65" r="3" fill="url(#gold)" opacity="0.6"/>
+        <path d="M-5, -120 L0, -135 L5, -120 Z" fill="url(#gold)" opacity="0.4"/>
+      </g>
+      
+      <!-- Gold boundary lines -->
+      <rect x="20" y="20" width="560" height="360" fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.15"/>
+      <rect x="25" y="25" width="550" height="350" fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.05"/>
+
+      <!-- Text -->
+      <text x="300" y="325" fill="url(#gold)" font-family="'Cormorant Garamond', serif" font-size="22" letter-spacing="1" text-anchor="middle" font-weight="400">HALIBUT EN CROÛTE</text>
+      <text x="300" y="355" fill="#6e6e6a" font-family="'Inter', sans-serif" font-size="11" letter-spacing="3" text-anchor="middle" font-weight="500">MAINS  •  $54</text>
+    </svg>
