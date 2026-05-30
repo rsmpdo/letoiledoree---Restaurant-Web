@@ -1,4 +1,3 @@
-/* L'Étoile Dorée - Master CSS Stylesheet */
 
 :root {
   /* Color Palette */
@@ -14,14 +13,11 @@
   --color-success: #88a885;
   --color-danger: #c58080;
   
-  /* Fonts */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
-  /* Spacing & Sizing */
   --container-max-width: 1200px;
   
-  /* Borders & Shadows */
   --border-gold-glass: 1px solid rgba(197, 168, 128, 0.15);
   --border-white-glass: 1px solid rgba(245, 245, 240, 0.08);
   --backdrop-blur: blur(16px);
@@ -29,7 +25,6 @@
   --box-shadow-gold: 0 4px 20px rgba(197, 168, 128, 0.2);
 }
 
-/* Global Styles */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -50,7 +45,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 500;
@@ -90,7 +84,6 @@ a {
   transition: all 0.3s ease;
 }
 
-/* Layout Utilities */
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
@@ -116,7 +109,6 @@ a {
   border-color: rgba(197, 168, 128, 0.3);
 }
 
-/* Scrollbar Customization */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -134,7 +126,6 @@ a {
   background: var(--color-gold);
 }
 
-/* Buttons */
 .btn-gold {
   display: inline-block;
   background: transparent;
@@ -196,7 +187,6 @@ a {
   transform: translateY(-2px);
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -225,7 +215,6 @@ a {
   animation: fadeInUp 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
 }
 
-/* Form Styles */
 .form-group {
   margin-bottom: 1.5rem;
   display: flex;
@@ -275,7 +264,6 @@ select.form-control option {
   text-align: center;
 }
 
-/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -379,7 +367,6 @@ select.form-control option {
   color: var(--color-text-primary);
 }
 
-/* Mobile Navbar Toggle */
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
@@ -412,7 +399,6 @@ select.form-control option {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Mobile Drawer Links */
 .mobile-navbar-drawer {
   position: fixed;
   top: 0;
@@ -464,8 +450,6 @@ select.form-control option {
   margin-top: 1rem;
 }
 
-
-/* HERO SECTION */
 .hero-section {
   position: relative;
   width: 100%;
@@ -479,7 +463,6 @@ select.form-control option {
   overflow: hidden;
 }
 
-/* Pre-load background gradient if image fails */
 .hero-section::before {
   content: '';
   position: absolute;
@@ -610,8 +593,6 @@ select.form-control option {
   100% { transform: scale(1.1); opacity: 1; }
 }
 
-
-/* STORY SECTION */
 .story-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -730,8 +711,6 @@ select.form-control option {
   line-height: 1.4;
 }
 
-
-/* MENU SECTION */
 .menu-intro {
   max-width: 600px;
   margin: -2rem auto 4rem;
@@ -902,7 +881,6 @@ select.form-control option {
 }
 
 
-/* REVIEWS SECTION */
 .reviews-intro {
   max-width: 600px;
   margin: -2rem auto 4rem;
@@ -1016,7 +994,6 @@ select.form-control option {
 }
 
 
-/* FOOTER */
 .footer-section {
   background-color: #050505;
   padding: 5rem 0 3rem;
@@ -1079,7 +1056,6 @@ select.form-control option {
 }
 
 
-/* MODALS & OVERLAYS */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1152,7 +1128,6 @@ select.form-control option {
   gap: 1rem;
 }
 
-/* Zone Selections */
 .zone-selector-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1231,7 +1206,6 @@ select.form-control option {
 }
 
 
-/* TICKET RECEIPT */
 .reservation-success {
   max-width: 600px;
   margin: 0 auto;
@@ -1369,7 +1343,6 @@ select.form-control option {
 }
 
 
-/* ADMIN PORTAL */
 .admin-modal-overlay {
   background: rgba(5, 5, 5, 0.92);
 }
@@ -1382,7 +1355,6 @@ select.form-control option {
   flex-direction: column;
 }
 
-/* Login Panel */
 .admin-login-container {
   max-width: 420px;
   margin: auto;
@@ -1425,7 +1397,6 @@ select.form-control option {
   color: var(--color-gold);
 }
 
-/* Admin Dashboard */
 .admin-dashboard-container {
   display: flex;
   flex-direction: column;
@@ -1582,7 +1553,6 @@ select.form-control option {
   color: var(--color-text-muted);
 }
 
-/* Admin Table */
 .admin-table-wrapper {
   overflow-x: auto;
 }
@@ -1746,7 +1716,6 @@ select.form-control option {
   color: white;
 }
 
-/* Admin Reviews Moderation */
 .admin-reviews-management {
   padding: 2rem;
 }
@@ -1847,7 +1816,6 @@ select.form-control option {
 }
 
 
-/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 1024px) {
   .admin-stats-grid {
     grid-template-columns: repeat(3, 1fr);
