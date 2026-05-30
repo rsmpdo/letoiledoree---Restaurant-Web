@@ -44,7 +44,6 @@ export default function Reservation({ isOpen, onClose }) {
     setLoading(true);
     setError('');
 
-    // Quick Validation
     if (!formData.name || !formData.email || !formData.phone || !formData.date || !formData.time) {
       setError('Please fill in all required fields.');
       setLoading(false);
@@ -96,7 +95,6 @@ export default function Reservation({ isOpen, onClose }) {
     onClose();
   };
 
-  // Get tomorrow's date string as minimum date for reservation
   const getMinDate = () => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
