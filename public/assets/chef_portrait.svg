@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+      <defs>
+        <radialGradient id="bg" cx="50%" cy="45%" r="65%">
+          <stop offset="0%" stop-color="#1a1816"/>
+          <stop offset="100%" stop-color="#050505"/>
+        </radialGradient>
+        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c5a880"/>
+          <stop offset="50%" stop-color="#f5d77f"/>
+          <stop offset="100%" stop-color="#9a7215"/>
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bg)"/>
+      
+      <!-- Portrait Wireframe -->
+      <g transform="translate(300, 360)" fill="none" stroke="url(#gold)">
+        <!-- Chef Silhouette Outline (abstract luxury line art) -->
+        <path d="M-120,250 C-120,180 -100,120 -60,110 C-40,105 -30,60 -30,20 C-30,-20 -50,-30 -50,-80 C-50,-140 0,-160 0,-160 C0,-160 50,-140 50,-80 C50,-30 30,-20 30,20 C30,60 40,105 60,110 C100,120 120,180 120,250" stroke-width="1.5" opacity="0.4"/>
+        <!-- Chef Hat Outline -->
+        <path d="M-40,-155 C-80,-180 -80,-240 -20,-250 C-40,-290 40,-290 20,-250 C80,-240 80,-180 40,-155" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <!-- Star overlay -->
+        <path d="M0,-50 L5,-35 L20,-35 L8,-25 L12,-10 L0,-20 L-12,-10 L-8,-25 L-20,-35 L-5,-35 Z" fill="url(#gold)" opacity="0.7"/>
+      </g>
+      
+      <circle cx="300" cy="360" r="220" fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.2"/>
+      
+      <!-- Text labels -->
+      <text x="300" y="650" fill="url(#gold)" font-family="'Cormorant Garamond', serif" font-size="28" letter-spacing="3" text-anchor="middle">Chef Jean-Luc L'Étoile</text>
+      <text x="300" y="685" fill="#a8a8a2" font-family="'Inter', sans-serif" font-size="12" letter-spacing="4" text-anchor="middle" opacity="0.8">MICHELIN CULINARY DIRECTOR</text>
+    </svg>
