@@ -7,7 +7,6 @@ export default function Admin({ isOpen, onClose }) {
   const [loginError, setLoginError] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
 
-  // Dashboard Data State
   const [activeTab, setActiveTab] = useState('reservations');
   const [stats, setStats] = useState({
     totalBookings: 0,
@@ -23,7 +22,6 @@ export default function Admin({ isOpen, onClose }) {
   const [actionLoading, setActionLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  // Fetch data if authenticated
   useEffect(() => {
     if (token && isOpen) {
       fetchDashboardData();
@@ -36,21 +34,18 @@ export default function Admin({ isOpen, onClose }) {
     try {
       const headers = { Authorization: `Bearer ${token}` };
       
-      // Fetch stats
       const statsRes = await fetch('/api/admin/stats', { headers });
       const statsData = await statsRes.json();
 
-      // Fetch bookings
       const bookRes = await fetch('/api/admin/reservations', { headers });
       const bookData = await bookRes.json();
 
-      // Fetch reviews
       const revRes = await fetch('/api/admin/reviews', { headers });
       const revData = await revRes.json();
 
       if (statsRes.ok && bookRes.ok && revRes.ok) {
         setStats(statsData);
-        // Sort reservations by created time (latest first) or date
+        
         setReservations(bookData.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt)));
         setReviews(revData.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt)));
       } else {
@@ -97,7 +92,6 @@ export default function Admin({ isOpen, onClose }) {
     localStorage.removeItem('adminToken');
   };
 
-  // Action methods
   const updateReservationStatus = async (id, status) => {
     setActionLoading(true);
     try {
@@ -110,7 +104,7 @@ export default function Admin({ isOpen, onClose }) {
         body: JSON.stringify({ status })
       });
       if (res.ok) {
-        await fetchDashboardData(); // Reload
+        await fetchDashboardData();
       } else {
         alert('Failed to update reservation status.');
       }
@@ -234,7 +228,6 @@ export default function Admin({ isOpen, onClose }) {
             </div>
           </div>
         ) : (
-          /* Dashboard Interface */
           <div className="admin-dashboard-container">
             <div className="admin-header">
               <div>
@@ -400,7 +393,6 @@ export default function Admin({ isOpen, onClose }) {
                 )}
               </div>
             ) : (
-              /* Reviews Tab */
               <div className="admin-reviews-management glass-panel">
                 {reviews.length === 0 ? (
                   <p className="no-records-msg text-center">No reviews found in database.</p>
